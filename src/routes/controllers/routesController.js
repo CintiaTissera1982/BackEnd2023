@@ -1,4 +1,4 @@
-const ProductManager = require('../../product/productManager.js');
+const ProductManager = require('../../product/ProductManager.js');
 
 let products 
 const createManager= ()=>{
@@ -14,8 +14,7 @@ const createManager= ()=>{
 
 const getAllProducts = (async(req,res)=>{
     try{
-        
-        const allProducts = await products.getAll();
+        const allProducts = await products.getProducts();
         res.send(JSON.stringify(allProducts))
     }
     catch(error){
@@ -33,7 +32,7 @@ const getProductsById = (async(req,res)=>{
     try{
         
         const {id} = req.params;
-        const productById = await products.getById(parseInt(id))
+        const productById = await products.getProductById(parseInt(id))
         res.send(JSON.stringify(productById))
     }catch(error){
         console.log('Error en controller getProductsByid')
@@ -47,7 +46,7 @@ const getOnlyAFewProducts= (async(req,res) =>{
         const {limit} =req.query
         console.log(req.query)
         if (limit){
-            const allProducts = await products.getAll()
+            const allProducts = await products.getProducts();
             const onlyAFew = allProducts.slice(0,parseInt(limit));
             console.log('Obteniendo solo el total de: '+limit)
             console.log(onlyAFew)
@@ -58,7 +57,7 @@ const getOnlyAFewProducts= (async(req,res) =>{
         }
 
     }catch(error){
-        console.log('Erorr en getOnlyAFew')
+        console.log('Error en controller getOnlyAFew')
         res.send({error:-1,message:`Error al buscar la cantidad de ${limit}`})
     }
 

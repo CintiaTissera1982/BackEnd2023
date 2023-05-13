@@ -28,8 +28,6 @@ const constants = require('../constants/constants.js')
             const bKeys= Object.keys(product).sort(); 
 
             if(JSON.stringify(aKeys)===JSON.stringify(bKeys)){
-                //Verificar si existe el archivo
-                
                     
                     const checkEmpty = Object.values(product).every(value => !!value)
                     if ( !checkEmpty){       
@@ -121,7 +119,7 @@ const constants = require('../constants/constants.js')
     updateProduct = async(id,body)=>{
         try {
 
-            const aKeys= Object.keys(this.#contractProducts).sort();
+            const aKeys= Object.keys(constants.contractProducts).sort();
             const bKeys= Object.keys(body).sort(); 
 
             if(JSON.stringify(aKeys)===JSON.stringify(bKeys)){
