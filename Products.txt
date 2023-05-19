@@ -1,29 +1,20 @@
 [
   {
     "id": 1,
-    "title": "Mesa1",
+    "title": "Mesa",
     "description": "Mesa de madera",
     "price": 34,
     "thumbnail": "/fotos/fotomesa",
     "code": 1234,
     "stock": 200
   },
-    {
-    "id": 2,
-    "title": "Mesa2",
-    "description": "Mesa de pino",
-    "price": 1000,
-    "thumbnail": "/fotos/fotomesa2",
-    "code": 1212,
-    "stock": 2010
-  },
   {
     "id": 3,
-    "title": "Mesa3",
-    "description": "Mesa de vidrio",
+    "title": "Mesa2223433",
+    "description": "Mesa detttt a24",
     "price": 656,
     "thumbnail": "/fotos/fotomesa3",
-    "code": 143234,
+    "code": 1234,
     "stock": 2010
   }
 ]

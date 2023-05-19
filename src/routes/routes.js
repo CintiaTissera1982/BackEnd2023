@@ -2,12 +2,7 @@ const express = require('express');
 const routeController = require('./controllers/routesController.js')
 const router = express.Router();
 
-
- routeController.createManager();
-
-
-router.get('/products',routeController.getOnlyAFewProducts);
-router.get('/products/:id',routeController.getProductsById);
-
+//router.get('/products',routeController.getProducts);
+router.get('/products/:pid?',routeController.getProducts);
 
 module.exports= {router};
