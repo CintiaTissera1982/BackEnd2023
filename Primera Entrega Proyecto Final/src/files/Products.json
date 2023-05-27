@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "title": "Mesa A",
+    "description": "Mesa de madera A",
+    "price": 66,
+    "thumbnail": [
+      "/fotos/fotomesaA",
+      "/fotos/fotosillamA"
+    ],
+    "code": 1458,
+    "status": true,
+    "category": "muebles",
+    "stock": 2010
+  },
+  {
+    "id": 2,
+    "title": "Mesa B",
+    "description": "Mesa de madera B",
+    "price": 66,
+    "thumbnail": [
+      "/fotos/fotomesaB",
+      "/fotos/fotosillamB"
+    ],
+    "code": 4458,
+    "status": true,
+    "category": "muebles",
+    "stock": 2010
+  },
+  {
+    "id": 4,
+    "title": "Mesa E",
+    "description": "Mesa de madera E",
+    "price": 255,
+    "thumbnail": [
+      "/fotos/fotomesaE",
+      "/fotos/fotosillamE"
+    ],
+    "code": 9954,
+    "status": true,
+    "category": "muebles",
+    "stock": 2010
+  },
+  {
+    "id": 5,
+    "title": "Mesa E",
+    "description": "Mesa de madera E",
+    "price": 255,
+    "thumbnail": [
+      "/fotos/fotomesaE",
+      "/fotos/fotosillamE"
+    ],
+    "code": 993354,
+    "status": true,
+    "category": "muebles",
+    "stock": 2010
+  }
+]
