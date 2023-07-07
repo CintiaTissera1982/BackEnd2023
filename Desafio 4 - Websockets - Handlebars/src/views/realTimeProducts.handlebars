@@ -1,0 +1,87 @@
+<div style="display: flex; flex-direction:column">
+    <form id="productForm" method="post" style="display:flex; flex-direction:column;" >
+        <label>Titulo</label>
+        <input type="text" name="title" id="title" placeholder="Titulo">
+        <label>Descripcion</label>
+        <input type="text" name="description" id="description" placeholder="Descripcion">
+        <label>Codigo</label>
+        <input type="number" name="code" id="code" placeholder="Codigo">
+        <label>Precio</label>
+        <input type="number" name="price" id="price" placeholder="Precio">
+        <label>Stock</label>
+        <input type="number" name="stock" id="stock" placeholder="Stock">
+        <label>Categoria</label>
+        <input type="text" name="category" id="category" placeholder="Categoria">
+        <label>Thumbnail</label>
+        <input type="text" name="thumbnail" id="thumbnail" placeholder="Thumnail">
+        <button type="submit">Agregar Producto</button>
+    </form>
+
+    <label>id</label>
+    <input type="number" name="idProduct" id="idProduct" placeholder="ID">
+    <button id="btnDelete">Eliminar Producto</button>
+    
+</div>
+
+<div id="containerProducts">
+    <h1>Productos</h1>
+   
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script >
+const socketProducts = io()  
+
+socketProducts.on("realtimeproducts", async(data) => {
+    let htmlContent = `<h3>Se encontraron :</h3>`
+    data.forEach(element => {
+         htmlContent += `
+        <div>
+            <p>Id: ${element.id}</p>
+            <p>Titulo: ${element.title}</p>
+            <p>Descripcion: ${element.description}</p>
+            <p>Codigo: ${element.code}</p>
+            <p>Precio: ${element.price}</p>
+            <p>Estado: ${element.status}</p>
+            <p>Stock: ${element.stock}</p>            
+            <p>Categoria: ${element.category}</p>
+            <p>Thumbnail ${element.thumbnail}</p>
+        </div>
+        `        
+    });
+    const productContainer = document.getElementById("containerProducts")
+    productContainer.innerHTML = htmlContent;  
+
+});
+
+const productForm = document.getElementById("productForm")
+productForm.addEventListener("submit", (evt)=>{
+    evt.preventDefault()
+    const product = {
+        title: document.getElementById("title").value,
+        description: document.getElementById("description").value,
+        code: document.getElementById("code").value,
+        price: document.getElementById("price").value,
+        status:true,
+        stock: document.getElementById("stock").value,
+        category: document.getElementById("category").value,
+        thumbnail: [document.getElementById("thumbnail").value]
+    }
+    socketProducts.emit("newProduct",product);
+    productForm.reset()
+});
+
+const deleteSubmit = document.getElementById("btnDelete")
+
+deleteSubmit.addEventListener("click",(evt)=>{
+    evt.preventDefault();
+    const idDelete = document.getElementById("idProduct").value
+    if(idDelete !=""){
+        socketProducts.emit("deleteProduct",idDelete);
+    }else{
+        console.log("ingrese id de producto")
+    }
+    
+});
+
+
+</script>
